@@ -1,0 +1,48 @@
+<div class="container">
+  <h4>Login form</h4>
+  <form [formGroup]="loginForm" (ngSubmit)="onsubmit()">
+    <div class="form-group">
+      <label id="username">First name</label>
+      <input
+        for="username"
+        type="text"
+        class="form-control"
+        name='username'
+        id='username'
+        formControlName="username"
+      />
+    </div>
+
+    <div [hidden]="username.valid || username.untouched">
+  
+        <div [hidden]="!username.hasError('minlength')">
+          Username can not be shorter than 5 characters.
+        </div>
+        <div [hidden]="!username.hasError('required')">
+          Username is required.
+        </div>
+      </div>
+
+    <div class="form-group">
+      <label id="user2">Last Name</label>
+      <input
+        for="user2"
+        type="password"
+        class="form-control"
+        formControlName="lname"
+      />
+    </div>
+
+    <div class="form-group">
+      <label id="user2">Email</label>
+      <input
+        for="user2"
+        type="password"
+        class="form-control"
+        formControlName="email"
+      />
+    </div>
+
+    <input type="submit" value="submit" name="submit" />
+  </form>
+</div>
